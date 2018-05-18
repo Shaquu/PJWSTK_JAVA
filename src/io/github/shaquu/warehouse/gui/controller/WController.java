@@ -23,4 +23,6 @@ public abstract class WController implements Serializable, Initializable {
     boolean active = false;
 
     public abstract void init(int id);
+
+    public abstract void clearFields();
 }

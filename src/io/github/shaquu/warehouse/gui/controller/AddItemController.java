@@ -103,7 +103,8 @@ public class AddItemController extends WController {
         actionEvent.consume();
     }
 
-    private void clearFields() {
+    @Override
+    public void clearFields() {
         xLbl.clear();
         yLbl.clear();
         zLbl.clear();

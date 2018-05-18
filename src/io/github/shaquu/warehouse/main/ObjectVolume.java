@@ -17,6 +17,7 @@ public class ObjectVolume {
         return volume;
     }
 
+    @SuppressWarnings("unused")
     public void set(long volume) {
         this.volume = volume;
     }

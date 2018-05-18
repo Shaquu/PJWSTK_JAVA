@@ -3,7 +3,7 @@ package io.github.shaquu.warehouse.room;
 public class AlreadyRentedException extends Exception {
     private Room room;
 
-    public AlreadyRentedException(Room room) {
+    AlreadyRentedException(Room room) {
         this.room = room;
     }
 

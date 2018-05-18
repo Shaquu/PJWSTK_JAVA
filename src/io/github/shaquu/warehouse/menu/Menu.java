@@ -28,9 +28,7 @@ public class Menu extends MenuScreen {
     private final MenuLevel personListLevel;
     private final MenuLevel personManageLevel;
 
-    private int warehouseId;
     private int personId;
-    private int roomId;
 
     public Menu() throws IncorrectPeselException {
 
@@ -108,7 +106,7 @@ public class Menu extends MenuScreen {
                         selectingPersonLevel.show();
                         break;
                     case "3":
-                        FileManager.printable();
+                        FileManager.save();
                         System.out.printf("- Saved\n");
                         break;
                 }

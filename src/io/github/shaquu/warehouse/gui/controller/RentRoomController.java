@@ -56,6 +56,7 @@ public class RentRoomController extends WController {
         actionEvent.consume();
     }
 
+    @Override
     public void clearFields() {
         forDaysLbl.clear();
     }

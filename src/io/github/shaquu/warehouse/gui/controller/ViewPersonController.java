@@ -1,10 +1,7 @@
 package io.github.shaquu.warehouse.gui.controller;
 
 import io.github.shaquu.warehouse.Main;
-import io.github.shaquu.warehouse.gui.animation.ShakeTransition;
-import io.github.shaquu.warehouse.person.IncorrectPeselException;
 import io.github.shaquu.warehouse.person.Person;
-import io.github.shaquu.warehouse.person.Pesel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -42,7 +39,8 @@ public class ViewPersonController extends WController {
         actionEvent.consume();
     }
 
-    private void clearFields() {
+    @Override
+    public void clearFields() {
         nameLbl.clear();
         surnameLbl.clear();
         peselLbl.clear();

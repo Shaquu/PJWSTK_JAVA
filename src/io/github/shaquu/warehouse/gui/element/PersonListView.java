@@ -11,6 +11,7 @@ import javafx.scene.input.MouseButton;
 
 import java.time.LocalDate;
 
+@SuppressWarnings("CollectionAddedToSelf")
 public class PersonListView extends ListView<Person> {
 
     private ObservableList<Person> personList;

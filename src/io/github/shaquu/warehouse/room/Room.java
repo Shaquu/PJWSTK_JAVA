@@ -37,7 +37,7 @@ public class Room extends WarehouseObject<Item> {
         this.freeVolume = objectVolume.get();
     }
 
-    public void unrent() {
+    private void unrent() {
         this.rentDate = null;
         this.status = RoomStatus.OPEN;
         this.personId = -1;
@@ -117,12 +117,12 @@ public class Room extends WarehouseObject<Item> {
         }
     }
 
-    public void clearItems() {
+    private void clearItems() {
         this.freeVolume = objectVolume.get();
         this.itemList.clear();
     }
 
-    public LocalDate getRentDate() {
+    private LocalDate getRentDate() {
         return rentDate;
     }
 
@@ -170,6 +170,7 @@ public class Room extends WarehouseObject<Item> {
         return rentDate != null;
     }
 
+    @SuppressWarnings("SuspiciousMethodCalls")
     public void dismantle() {
         for (TreeItem<WarehouseObject> warehouseTreeItem : Main.mainWindow.getController().warehouseManager.rootProperty().get().getChildren()) {
             if (warehouseTreeItem.getValue() instanceof Warehouse) {

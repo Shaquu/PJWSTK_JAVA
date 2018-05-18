@@ -6,11 +6,11 @@ import java.util.List;
 
 public class WarehouseObject<T> extends Identifiable implements Iterable<T> {
 
-    public boolean isWarehouse = false;
-    public boolean isRoom = false;
+    public boolean isWarehouse;
+    public boolean isRoom;
     public int warehouseId;
     public int roomId;
-    protected List<T> objectList = new ArrayList<>();
+    List<T> objectList = new ArrayList<>();
 
     public WarehouseObject(boolean isNewElement, boolean isWarehouse, boolean isRoom, int warehouseId, int roomId) {
         this.isNewElement = isNewElement;

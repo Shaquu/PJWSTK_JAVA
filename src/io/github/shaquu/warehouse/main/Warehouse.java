@@ -23,14 +23,6 @@ public class Warehouse extends WarehouseObject<Room> {
         this.id = warehouseCount++;
     }
 
-    public boolean exists(int roomId) {
-        for (Room r : objectList) {
-            if (r.id == roomId)
-                return true;
-        }
-        return false;
-    }
-
     public Room get(int roomId) {
         for (Room r : objectList) {
             if (r.id == roomId)

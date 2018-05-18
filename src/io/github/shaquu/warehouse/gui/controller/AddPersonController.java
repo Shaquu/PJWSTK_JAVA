@@ -82,6 +82,7 @@ public class AddPersonController extends WController {
         actionEvent.consume();
     }
 
+    @Override
     public void clearFields() {
         nameLbl.clear();
         surnameLbl.clear();

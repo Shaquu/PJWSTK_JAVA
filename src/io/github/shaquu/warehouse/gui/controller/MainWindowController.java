@@ -86,6 +86,11 @@ public class MainWindowController extends WController {
 
     }
 
+    @Override
+    public void clearFields() {
+
+    }
+
     @FXML
     public void menuNewBtnAction(ActionEvent actionEvent) {
         Main.mainWindow.getController().warehouseManager.clear();
@@ -95,7 +100,7 @@ public class MainWindowController extends WController {
 
     @FXML
     public void menuSaveBtnAction(ActionEvent actionEvent) {
-        FileManager.printable();
+        FileManager.save();
     }
 
     @FXML

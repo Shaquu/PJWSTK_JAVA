@@ -8,58 +8,44 @@
 <?import javafx.scene.layout.*?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.4"
       fx:controller="io.github.shaquu.warehouse.gui.controller.MainWindowController">
-    <children>
-        <MenuBar VBox.vgrow="NEVER">
-            <menus>
-                <Menu mnemonicParsing="false" text="File">
-                    <items>
-                        <MenuItem fx:id="menuFile" mnemonicParsing="false" text="New" onAction="#menuNewBtnAction"/>
-                        <MenuItem fx:id="menuSave" mnemonicParsing="false" text="Save" onAction="#menuSaveBtnAction"/>
-                        <SeparatorMenuItem mnemonicParsing="false"/>
-                        <MenuItem fx:id="menuQuit" mnemonicParsing="false" text="Quit" onAction="#menuQuitBtnAction"/>
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Warehouse">
-                    <items>
-                        <MenuItem fx:id="menuTest" mnemonicParsing="false" text="Test…" onAction="#menuTestBtnAction"/>
-                        <SeparatorMenuItem mnemonicParsing="false"/>
-                        <MenuItem fx:id="menuAdmin" mnemonicParsing="false" text="Admin Mode"
-                                  onAction="#menuAdminAction"/>
-                        <SeparatorMenuItem mnemonicParsing="false"/>
-                        <MenuItem fx:id="menuSimulate" mnemonicParsing="false" text="Simulate Time"
-                                  onAction="#menuSimulateTimeBtnAction"/>
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-            <children>
-                <HBox>
-                    <children>
-                        <PersonListView fx:id="personManager" prefWidth="200.0"/>
-                        <WarehouseTreeView fx:id="warehouseManager" prefWidth="200.0"/>
-                        <ItemCanvas xmlns:fx="http://javafx.com/fxml/1" fx:id="itemCanvas" prefHeight="450.0"
-                                    prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.4">
-                            <columnResizePolicy>
-                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
-                            </columnResizePolicy>
-                        </ItemCanvas>
-                    </children>
-                </HBox>
-            </children>
-        </AnchorPane>
-        <HBox alignment="CENTER_RIGHT" spacing="20.0">
-            <children>
-                <Label fx:id="todayLbl" alignment="CENTER_RIGHT" text="Today is 2018-01-01">
-                    <HBox.margin>
-                        <Insets/>
-                    </HBox.margin>
-                </Label>
-                <ProgressBar fx:id="todayProgress" progress="0.0"/>
-            </children>
-            <VBox.margin>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-            </VBox.margin>
+    <MenuBar VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem fx:id="menuFile" mnemonicParsing="false" text="New" onAction="#menuNewBtnAction"/>
+            <MenuItem fx:id="menuSave" mnemonicParsing="false" text="Save" onAction="#menuSaveBtnAction"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem fx:id="menuQuit" mnemonicParsing="false" text="Quit" onAction="#menuQuitBtnAction"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Warehouse">
+            <MenuItem fx:id="menuTest" mnemonicParsing="false" text="Test…" onAction="#menuTestBtnAction"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem fx:id="menuAdmin" mnemonicParsing="false" text="Admin Mode"
+                      onAction="#menuAdminAction"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem fx:id="menuSimulate" mnemonicParsing="false" text="Simulate Time"
+                      onAction="#menuSimulateTimeBtnAction"/>
+        </Menu>
+    </MenuBar>
+    <AnchorPane VBox.vgrow="ALWAYS">
+        <HBox>
+            <PersonListView fx:id="personManager" prefWidth="200.0"/>
+            <WarehouseTreeView fx:id="warehouseManager" prefWidth="200.0"/>
+            <ItemCanvas xmlns:fx="http://javafx.com/fxml/1" fx:id="itemCanvas" prefHeight="450.0"
+                        prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.4">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </ItemCanvas>
         </HBox>
-    </children>
+    </AnchorPane>
+    <HBox alignment="CENTER_RIGHT" spacing="20.0">
+        <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </VBox.margin>
+        <Label fx:id="todayLbl" alignment="CENTER_RIGHT" text="Today is 2018-01-01">
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+        </Label>
+        <ProgressBar fx:id="todayProgress" progress="0.0"/>
+    </HBox>
 </VBox>

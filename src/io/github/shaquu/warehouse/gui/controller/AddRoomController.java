@@ -80,6 +80,7 @@ public class AddRoomController extends WController {
         actionEvent.consume();
     }
 
+    @Override
     public void clearFields() {
         xLbl.clear();
         yLbl.clear();

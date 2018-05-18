@@ -67,8 +67,6 @@ fabric.properties
 
 ### Java ###
 # Compiled class file
-*.class
-
 # Log file
 *.log
 
@@ -165,4 +163,4 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/osx,java,macos,linux,windows,intellij
 /resources/warehouseManager.txt
-warehouseManager.txt
+.idea/artifacts/

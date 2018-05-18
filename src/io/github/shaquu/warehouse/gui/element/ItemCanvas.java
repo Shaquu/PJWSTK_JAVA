@@ -24,7 +24,8 @@ public class ItemCanvas extends TableView<Item> {
         TableColumn<Item, String> volumeColumn = new TableColumn<>("Volume (in m3)");
         volumeColumn.setCellValueFactory(new PropertyValueFactory<>("volume"));
 
-        this.getColumns().addAll(nameColumn, volumeColumn);
+        this.getColumns().add(nameColumn);
+        this.getColumns().add(volumeColumn);
 
         ContextMenu cm = new ContextMenu();
         MenuItem removeItemMenu = new MenuItem("Remove Item");
@@ -71,7 +72,7 @@ public class ItemCanvas extends TableView<Item> {
         }
     }
 
-    public void remove(int roomId, int itemId) {
+    private void remove(int roomId, int itemId) {
         Room room = Main.mainWindow.getController().warehouseManager.getRoom(roomId);
         room.removeItem(itemId);
         for (int i = 0; i < getItems().size(); i++) {

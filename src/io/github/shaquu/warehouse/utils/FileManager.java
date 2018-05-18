@@ -1,7 +1,6 @@
 package io.github.shaquu.warehouse.utils;
 
 import io.github.shaquu.warehouse.Main;
-import io.github.shaquu.warehouse.gui.controller.WController;
 import io.github.shaquu.warehouse.item.Item;
 import io.github.shaquu.warehouse.main.Warehouse;
 import io.github.shaquu.warehouse.main.WarehouseObject;
@@ -9,24 +8,14 @@ import io.github.shaquu.warehouse.person.Person;
 import io.github.shaquu.warehouse.room.Room;
 import javafx.scene.control.TreeItem;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileManager {
+
     public static void save() {
-        try {
-
-            FileOutputStream fos = new FileOutputStream("data.serializable");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(Main.mainWindow.getController());
-            oos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void printable() {
 
         try {
 
@@ -58,19 +47,6 @@ public class FileManager {
             }
             fos.close();
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void load() {
-        try {
-            FileInputStream fis = new FileInputStream("data.serializable");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            WController result = (WController) ois.readObject();
-            Main.mainWindow.getController().personManager = result.personManager;
-            Main.mainWindow.getController().warehouseManager = result.warehouseManager;
-            ois.close();
-        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

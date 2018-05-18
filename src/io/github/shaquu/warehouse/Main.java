@@ -16,6 +16,7 @@ public class Main extends Application {
     public static int selectedPersonid = -2;
     public static int selectedWarehouseId;
     public static int selectedRoomId;
+
     public static WWindow mainWindow;
     public static WWindow addPersonWindow;
     public static WWindow viewPersonWindow;
@@ -29,6 +30,11 @@ public class Main extends Application {
             mainWindow.setController(new WController() {
                 @Override
                 public void init(int id) {
+
+                }
+
+                @Override
+                public void clearFields() {
 
                 }
 
