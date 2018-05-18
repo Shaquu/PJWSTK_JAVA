@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public abstract class MenuLevel {
 
+    private static Scanner sc = new Scanner(System.in);
     private String header;
     private String footer;
 
-    public MenuLevel(String header){
+    public MenuLevel(String header) {
         this.header = header;
     }
 
@@ -15,20 +16,18 @@ public abstract class MenuLevel {
         System.out.println(header);
     }
 
-    private static Scanner sc = new Scanner(System.in);
-
     protected abstract void preparedShow();
 
-    protected void show(){
+    protected void show() {
         printHeader();
         preparedShow();
     }
 
-    protected String getInput(){
+    protected String getInput() {
         return sc.nextLine();
     }
 
-    protected void printSpacing(){
+    protected void printSpacing() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 

@@ -70,6 +70,31 @@ public class Room extends WarehouseObject<Item> {
             System.out.printf("Added item %s to room %s\n", item, this);
         } else throw new TooManyThingsException(item, this);
     }
+    public Item removeItem(String itemName) {
+        int index = -1;
+
+        long volume = 0;
+
+        Item item = null;
+
+        Iterator it = itemList.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            if (((Item) pair.getValue()).getName().equals(itemName)) {
+                volume = ((Item) pair.getValue()).getVolume();
+                index = (int) pair.getKey();
+                item = new Item((Item) pair.getValue());
+                break;
+            }
+            it.remove();
+        }
+        if (index >= 0) {
+            itemList.remove(index);
+            freeVolume += volume;
+            return item;
+        }
+        return item;
+    }
 
     public void removeItem(int itemId) {
         int index = -1;

@@ -11,6 +11,9 @@ public class WWindow {
     private Stage stage;
     private WController controller;
 
+    public WWindow() {
+    }
+
     public WWindow(Stage stage) {
         this.stage = new Stage();
     }
