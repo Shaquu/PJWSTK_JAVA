@@ -1,6 +1,5 @@
 package io.github.shaquu.warehouse;
 
-import io.github.shaquu.warehouse.gui.controller.MainWindowController;
 import io.github.shaquu.warehouse.gui.controller.WController;
 import io.github.shaquu.warehouse.gui.controller.WWindow;
 import io.github.shaquu.warehouse.gui.element.NewElement;

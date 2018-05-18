@@ -52,7 +52,7 @@ public class WWindow {
         stage.show();
     }
 
-    public void hide() {
+    void hide() {
         getController().active = false;
         stage.hide();
     }

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 
 import java.time.LocalDate;
 
@@ -44,9 +45,11 @@ public class PersonListView extends ListView<Person> {
                         setOnMousePressed(event -> {
                             if (!Main.mainWindow.getController().adminMode) {
                                 Main.selectedPersonid = item.id();
-                                //System.out.println("Selected person with id " + Main.selectedPersonid);
                                 Main.mainWindow.getController().warehouseManager.forceRefresh();
-                                //Main.mainWindow.getController().warehouseManager.addNewElement();
+                                if(event.getButton() == MouseButton.SECONDARY){
+                                    Main.viewPersonWindow.getController().init(Main.selectedPersonid);
+                                    Main.viewPersonWindow.show();
+                                }
                             }
                         });
                         setText(item.getName() + " " + item.getSurname() + " #" + item.id());

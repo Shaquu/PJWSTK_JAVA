@@ -6,29 +6,24 @@ public abstract class MenuLevel {
 
     private static Scanner sc = new Scanner(System.in);
     private String header;
-    private String footer;
 
-    public MenuLevel(String header) {
+    MenuLevel(String header) {
         this.header = header;
     }
 
-    protected void printHeader() {
+    private void printHeader() {
         System.out.println(header);
     }
 
     protected abstract void preparedShow();
 
-    protected void show() {
+    void show() {
         printHeader();
         preparedShow();
     }
 
-    protected String getInput() {
+    String getInput() {
         return sc.nextLine();
-    }
-
-    protected void printSpacing() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
 }
