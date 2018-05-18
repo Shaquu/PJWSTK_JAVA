@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.warehouse.room;
 
 
@@ -70,6 +75,7 @@ public class Room extends WarehouseObject<Item> {
             System.out.printf("Added item %s to room %s\n", item, this);
         } else throw new TooManyThingsException(item, this);
     }
+
     public Item removeItem(String itemName) {
         int index = -1;
 
