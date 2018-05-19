@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game.gui.components;
 
 import io.github.shaquu.memory.game.Main;
@@ -54,6 +59,7 @@ public class GameCardFX extends VBox {
     }
 
     private double flipSpeed = 300;
+
     private void configureFlip() {
         this.scaleTransitionHide = new ScaleTransition(Duration.millis(flipSpeed), this.imageView);
         this.scaleTransitionHide.setByY(-1f);

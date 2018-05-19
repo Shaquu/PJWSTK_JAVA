@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game.score;
 
 import java.io.Serializable;
@@ -30,7 +35,7 @@ public class Score implements Serializable {
         this.uniqName = playerName + ":" + rows + ":" + cols;
     }
 
-    public String uniq() {
+    String uniq() {
         return uniqName;
     }
 }

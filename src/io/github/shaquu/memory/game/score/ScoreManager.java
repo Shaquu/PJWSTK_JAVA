@@ -1,9 +1,16 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game.score;
 
 import io.github.shaquu.memory.game.utils.GameLogger;
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class ScoreManager implements Serializable {
 
@@ -44,6 +51,7 @@ public class ScoreManager implements Serializable {
         try {
             fos = new FileInputStream("scores");
             ObjectInputStream oos = new ObjectInputStream(fos);
+            //noinspection unchecked
             scoreHashMap = (HashMap<String, Score>) oos.readObject();
             fos.close();
         } catch (IOException | ClassNotFoundException ex) {

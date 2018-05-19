@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game.gui.screens;
 
 import io.github.shaquu.memory.game.Main;
@@ -13,7 +18,7 @@ import javafx.scene.text.Font;
 
 public class HighScoreScreen extends Screen {
 
-    public HighScoreScreen(){
+    HighScoreScreen() {
     }
 
     @Override

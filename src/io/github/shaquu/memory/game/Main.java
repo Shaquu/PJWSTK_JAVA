@@ -1,10 +1,16 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game;
 
 import io.github.shaquu.memory.game.gui.components.GameCardManager;
-import io.github.shaquu.memory.game.gui.screens.GameScreen;
 import io.github.shaquu.memory.game.gui.screens.MenuScreen;
 import io.github.shaquu.memory.game.score.ScoreManager;
-import io.github.shaquu.memory.game.utils.*;
+import io.github.shaquu.memory.game.utils.CardImageManager;
+import io.github.shaquu.memory.game.utils.GameLogger;
+import io.github.shaquu.memory.game.utils.ResourceManager;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
@@ -36,7 +42,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         MenuScreen menuScreen = new MenuScreen();
         menuScreen.init();
         menuScreen.show();

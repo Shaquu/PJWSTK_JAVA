@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game.gui.screens;
 
 import io.github.shaquu.memory.game.Main;
@@ -9,8 +14,6 @@ import io.github.shaquu.memory.game.utils.RandomImageName;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -19,14 +22,10 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class GameScreen extends Screen {
@@ -35,7 +34,7 @@ public class GameScreen extends Screen {
     private final int cols;
     private Score score;
 
-    public GameScreen(int rows, int cols, String playerName){
+    GameScreen(int rows, int cols, String playerName) {
         this.rows = rows;
         this.cols = cols;
 
@@ -95,6 +94,7 @@ public class GameScreen extends Screen {
     private long startTime;
     private Timeline timeline;
     private long newTime;
+
     private void start(){
         startTime = System.currentTimeMillis();
 
@@ -124,11 +124,7 @@ public class GameScreen extends Screen {
         exit();
     }
 
-    public void exit(){
-        Platform.runLater(this::hide);
-    }
-
-    public static String formatMillis(long timeInMillis) {
+    static String formatMillis(long timeInMillis) {
         String sign = "";
         if (timeInMillis < 0) {
             sign = "-";
@@ -143,5 +139,9 @@ public class GameScreen extends Screen {
                 String.format("%02d", minutes) +
                 String.format(":%02d", seconds) +
                 String.format(".%03d", millis);
+    }
+
+    private void exit() {
+        Platform.runLater(this::hide);
     }
 }

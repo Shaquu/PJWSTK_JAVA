@@ -1,20 +1,18 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game.gui.screens;
 
 import io.github.shaquu.memory.game.Main;
 import io.github.shaquu.memory.game.gui.components.GameCardFX;
 import io.github.shaquu.memory.game.gui.components.GameCardManager;
 import io.github.shaquu.memory.game.gui.utils.Screen;
-import io.github.shaquu.memory.game.score.Score;
 import io.github.shaquu.memory.game.utils.GameLogger;
-import io.github.shaquu.memory.game.utils.RandomImageName;
 import io.github.shaquu.memory.game.utils.ShakeTransition;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,8 +21,6 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-
-import java.awt.event.MouseEvent;
 
 public class MenuScreen extends Screen {
 

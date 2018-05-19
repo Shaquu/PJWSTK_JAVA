@@ -1,7 +1,11 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game.gui.components;
 
 import io.github.shaquu.memory.game.gui.screens.GameScreen;
-import io.github.shaquu.memory.game.utils.GameLogger;
 import io.github.shaquu.memory.game.utils.RandomImageName;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,7 +17,7 @@ public class GameCardManager extends VBox {
     private final int rows;
     private final int cols;
     public static double cardSpacing = 25;
-    public int leftToMatch;
+    private int leftToMatch;
 
     private GameScreen gameScreen;
     private GameCardFX firstSelected;
@@ -52,6 +56,7 @@ public class GameCardManager extends VBox {
     private long sleepTimeBeforeMatch = 1000;
     private long sleepTimeAfterMatch = 100;
     private boolean matching = false;
+
     void cardSelected(GameCardFX gameCardFX){
         if(gameCardFX.getState() == GameCardFX.GameCardState.DONE){
             return;

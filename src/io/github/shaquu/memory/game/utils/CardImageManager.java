@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game.utils;
 
 import javafx.scene.image.Image;
@@ -6,13 +11,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,21 +35,20 @@ public class CardImageManager {
                         Pattern p = Pattern.compile("\\d{3}-(.*?)-card.png");
                         Matcher m = p.matcher(fileName);
 
-                        if (m.find())
-                        {
+                        if (m.find()) {
                             String[] data = m.group(1).split("-");
-                            String name = "";
+                            StringBuilder name = new StringBuilder();
                             for(String d : data){
-                                name += Character.toUpperCase(d.charAt(0)) + d.substring(1) + " ";
+                                name.append(Character.toUpperCase(d.charAt(0))).append(d.substring(1)).append(" ");
                             }
-                            name = name.substring(0, name.length() - 1);
-                            imageNameList.put(name, fileName);
+                            name = new StringBuilder(name.substring(0, name.length() - 1));
+                            imageNameList.put(name.toString(), fileName);
                         }
                     });
         }
     }
 
-    public String getNameAt(int index){
+    String getNameAt(int index) {
         int find = 0;
         for(String name : imageNameList.keySet()){
             if(find == index){

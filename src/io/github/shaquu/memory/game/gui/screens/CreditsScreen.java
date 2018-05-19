@@ -1,27 +1,21 @@
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
 package io.github.shaquu.memory.game.gui.screens;
 
-import io.github.shaquu.memory.game.Main;
-import io.github.shaquu.memory.game.gui.components.GameCardManager;
 import io.github.shaquu.memory.game.gui.utils.Screen;
-import io.github.shaquu.memory.game.score.Score;
 import io.github.shaquu.memory.game.utils.GameLogger;
-import io.github.shaquu.memory.game.utils.RandomImageName;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.util.Duration;
-
-import java.util.concurrent.TimeUnit;
 
 public class CreditsScreen extends Screen {
 
-    public CreditsScreen(){
+    CreditsScreen() {
     }
 
     @Override
