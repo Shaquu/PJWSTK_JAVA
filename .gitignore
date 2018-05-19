@@ -162,5 +162,3 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/osx,java,macos,linux,windows,intellij
-/resources/warehouseManager.txt
-.idea/artifacts/
