@@ -55,7 +55,6 @@ public class ScoreManager implements Serializable {
             scoreHashMap = (HashMap<String, Score>) oos.readObject();
             fos.close();
         } catch (IOException | ClassNotFoundException ex) {
-            ex.printStackTrace();
             scoreHashMap = new HashMap<>();
         }
 

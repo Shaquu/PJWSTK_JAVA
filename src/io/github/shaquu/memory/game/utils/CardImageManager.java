@@ -7,7 +7,6 @@ package io.github.shaquu.memory.game.utils;
 
 import javafx.scene.image.Image;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -26,18 +25,18 @@ public class CardImageManager {
 
         URI uri = CardImageManager.class.getResource("/image/card/").toURI();
         Path myPath;
+        FileSystem fileSystem = null;
         if (uri.getScheme().equals("jar")) {
-            FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
-            myPath = fileSystem.getPath("/resources");
+            fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
+            myPath = fileSystem.getPath("/image/card/");
         } else {
             myPath = Paths.get(uri);
         }
 
-        Files.walk(myPath, 1)
+        Files.walk(myPath)
                 .filter(Files::isRegularFile)
                 .forEach(path -> {
-                    File file = path.toFile();
-                    String fileName = file.getName();
+                    String fileName = path.getFileName().toString();
 
                     Pattern p = Pattern.compile("\\d{3}-(.*?)-card.png");
                     Matcher m = p.matcher(fileName);
@@ -53,6 +52,10 @@ public class CardImageManager {
                     }
                 });
 
+        if (fileSystem != null) {
+            fileSystem.close();
+        }
+        
         GameLogger.log("Loaded images : " + imageNameList.size());
     }
 
