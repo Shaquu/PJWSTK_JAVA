@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -131,8 +130,8 @@ public class GameCardFX extends VBox {
         new Thread(() -> {
             while(flipping){}
             GameCardFX.this.state = GameCardState.MATCHED;
-            flipping = true;
-            scaleTransitionHide.play();
+            //flipping = true;
+            //scaleTransitionHide.play();
         }).start();
     }
 }
