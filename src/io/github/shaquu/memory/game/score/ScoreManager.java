@@ -70,7 +70,7 @@ public class ScoreManager implements Serializable {
             if (sizeA > sizeB) {
                 return -1;
             } else if (sizeA == sizeB) {
-                if (a.time >= b.time) {
+                if (a.time < b.time) {
                     return -1;
                 }
             }

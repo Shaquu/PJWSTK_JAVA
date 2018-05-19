@@ -53,8 +53,8 @@ public class GameCardManager extends VBox {
         this.setMinSize(this.getWidth(), this.getHeight());
     }
 
-    private long sleepTimeBeforeMatch = 1000;
-    private long sleepTimeAfterMatch = 100;
+    private long sleepTimeBeforeMatch = 200;
+    private long sleepTimeAfterMatch = 50;
     private boolean matching = false;
 
     void cardSelected(GameCardFX gameCardFX){
