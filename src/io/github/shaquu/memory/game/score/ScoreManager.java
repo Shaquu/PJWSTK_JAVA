@@ -21,6 +21,13 @@ public class ScoreManager implements Serializable {
     }
 
     public void add(Score score){
+        if (score.cols > score.rows) {
+            int tRows = score.rows;
+            score.rows = score.cols;
+            score.cols = tRows;
+            score.finish();
+        }
+
         if(scoreHashMap.containsKey(score.uniq())){
             Score tempScore = scoreHashMap.get(score.uniq());
             if(tempScore.time > score.time){
