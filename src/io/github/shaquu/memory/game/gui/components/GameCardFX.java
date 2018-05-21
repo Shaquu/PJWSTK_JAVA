@@ -76,9 +76,9 @@ public class GameCardFX extends VBox {
             switch (state) {
                 case MATCHED:
                     GameLogger.log("Card matched " + GameCardFX.this.name);
-                    GameCardFX.this.imageView.setImage(cardFinished);
+                    //GameCardFX.this.imageView.setImage(cardFinished);
                     GameCardFX.this.state = GameCardState.DONE;
-                    GameCardFX.this.label.setVisible(false);
+                    //GameCardFX.this.label.setVisible(false);
 
                     break;
                 case AVERS:
@@ -128,7 +128,8 @@ public class GameCardFX extends VBox {
         new Thread(() -> {
             while(flipping){}
             flipping = true;
-            scaleTransitionHide.play();
+            if (GameCardFX.this.state != GameCardState.MATCHED)
+                scaleTransitionHide.play();
         }).start();
     }
 

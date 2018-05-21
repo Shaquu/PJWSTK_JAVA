@@ -20,7 +20,7 @@ public abstract class Screen {
     private Stage stage;
 
 
-    protected Stage getStage() {
+    public Stage getStage() {
         return stage;
     }
 

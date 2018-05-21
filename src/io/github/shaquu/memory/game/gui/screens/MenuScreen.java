@@ -10,7 +10,7 @@ import io.github.shaquu.memory.game.gui.components.GameCardFX;
 import io.github.shaquu.memory.game.gui.components.GameCardManager;
 import io.github.shaquu.memory.game.gui.utils.Screen;
 import io.github.shaquu.memory.game.utils.GameLogger;
-import io.github.shaquu.memory.game.utils.ShakeTransition;
+import io.github.shaquu.memory.game.utils.transitions.ShakeTransition;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -222,5 +222,7 @@ public class MenuScreen extends Screen {
 
         Scene scene = new Scene(root);
         this.getStage().setScene(scene);
+
+        //new FadeOutDownTransition(timeFld).playFromStart();
     }
 }

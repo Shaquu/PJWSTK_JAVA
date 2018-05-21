@@ -11,6 +11,7 @@ import io.github.shaquu.memory.game.score.ScoreManager;
 import io.github.shaquu.memory.game.utils.CardImageManager;
 import io.github.shaquu.memory.game.utils.GameLogger;
 import io.github.shaquu.memory.game.utils.ResourceManager;
+import io.github.shaquu.memory.game.utils.transitions.PulseTransition;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
@@ -46,5 +47,7 @@ public class Main extends Application {
         MenuScreen menuScreen = new MenuScreen();
         menuScreen.init();
         menuScreen.show();
+
+        new PulseTransition(menuScreen.getStage().getScene().getRoot()).playFromStart();
     }
 }

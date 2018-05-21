@@ -11,6 +11,7 @@ import io.github.shaquu.memory.game.gui.utils.Screen;
 import io.github.shaquu.memory.game.score.Score;
 import io.github.shaquu.memory.game.utils.GameLogger;
 import io.github.shaquu.memory.game.utils.RandomImageName;
+import io.github.shaquu.memory.game.utils.transitions.ShakeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -115,8 +116,10 @@ public class GameScreen extends Screen {
         score.finish();
         Main.score.add(score);
         Platform.runLater(() -> timeFld.setText("you won with time " + formatMillis(newTime)));
+
+        new ShakeTransition(timeFld).playFromStart();
         try {
-            Thread.sleep(6000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

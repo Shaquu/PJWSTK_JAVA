@@ -69,6 +69,25 @@ public class GameCardManager extends VBox {
             firstSelected = gameCardFX;
             gameCardFX.selected();
         } else {
+            if (firstSelected == gameCardFX) {
+                matching = true;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(sleepTimeBeforeMatch);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    firstSelected.unselected();
+                    firstSelected = null;
+                    try {
+                        Thread.sleep(sleepTimeAfterMatch);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    matching = false;
+                }).start();
+                return;
+            }
             if(firstSelected.getState() == GameCardFX.GameCardState.REVERS){
                 return;
             }
