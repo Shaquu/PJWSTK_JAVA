@@ -1,0 +1,17 @@
+language: java
+
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+
+os:
+  - linux
+  - osx
+
+branches:
+  only:
+    - Projekt_Two_GUI
+
+script:
+  - ./gradlew clean
+  - ./gradlew build
