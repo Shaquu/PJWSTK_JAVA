@@ -15,3 +15,15 @@ branches:
 script:
   - ./gradlew clean
   - ./gradlew build
+  - ./gradlew fatJar
+
+deploy:
+  provider: releases
+  file_glob: true
+  api_key:
+    secure: "MGvKVmtCnzxWzro97W0pcvYAy8SENyYSaaEI9ad9t7pVTmxPzI6/v9BDnlZZKqVXcW3tZw14aBkWgSRqlUbEVEcl8uZe0BBmq41QH4p6JqQEjyRiT+UKJ9YjSePKc1e+oImWWBYfaRdFIR5X5D0kHggXcWmCFQAWuG+1xKg6EXizTeXq7TQlmYU9ubQzp5ozyCudSe4S/K8hYqwCNLg3oliEN3rG8hkfpukFCDdNKr1DZVWscDOfurnnIQlDWikyX3Y6+3GbUW+12vkqewmnyiBX/Zg5khpNcIniMr+k/FcABANzEEKSCuCJHNc3ZRJwvIxSllHPMfqSSzyAcpQE3IgEyuecb7o8hsGtT87vWQgaue8HUMLrz5Y6O4gr4iDmgXLQbJTKFJIkGyEV/l376x3xtg5db3xvmaTZM7wn3zbI1KrxEzTGJumIdp80auRIN51R4C/kSGkXjm+RKOGy3f6Nv6/eBTowyID6HVJx8AOXneEToDU+qBZFprq+NqlMSzI6olc9DDpiHukqNNsQoh2eap8vDshtoXlA7sKuc7N8yfncuQuJcqe97xeeKxYGXrBx6B/zYri1jUU6vlikz481y4HVTqltWqkTwgbldfwizwF0AR07Pw0U3uItqLky+U8Y7Sl7rTDEgogTrNJEQz1rErXITbqXzhkyNgnR8VA="
+  file: build/libs/*
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true
