@@ -3,7 +3,8 @@ language: java
 jdk:
   - oraclejdk8
   - oraclejdk9
-  - openjdk8
+
+sudo: required
 
 os:
   - linux
