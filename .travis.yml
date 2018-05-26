@@ -2,11 +2,7 @@ language: java
 
 sudo: required
 
-os:
-- linux
-- osx
-
-osx_image: xcode9.3
+os: linux
 
 addons:
   apt:
@@ -21,7 +17,6 @@ script:
 before_deploy:
   - git config --global user.email "tadev3@gmail.com"
   - git config --global user.name "Shaquu Travis"
-  - export RELASE_FILE=$(ls build/libs/Projekt_Two_GUI*.jar)
   - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
   - export GIT_TAG=$TRAVIS_BRANCH-v0.1.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
@@ -31,7 +26,7 @@ deploy:
   provider: releases
   file_glob: true
   api_key: $token
-  file: "${RELASE_FILE}"
+  file: ${HOME}/build/libs/Projekt_Two_GUI*.jar
   on:
     tags: false
     all_branches: true
