@@ -1,0 +1,22 @@
+apply plugin: 'idea'
+/*
+ * Copyright (c) 2018 Tadeusz Wyrzykowski (tadev3@gmail.com)
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+ */
+
+//and standard one
+apply plugin: 'java'
+
+
+version = '1.0'
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Memory Game',
+                'Implementation-Version': version,
+                'Main-Class': 'io.github.shaquu.memory.game.Main'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
