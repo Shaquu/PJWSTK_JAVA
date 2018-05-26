@@ -7,6 +7,7 @@ package io.github.shaquu.memory.game.gui.components;
 
 import io.github.shaquu.memory.game.Main;
 import io.github.shaquu.memory.game.utils.GameLogger;
+import io.github.shaquu.memory.game.utils.transitions.PulseTransition;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -14,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 
 @SuppressWarnings("ALL")
@@ -24,7 +26,7 @@ public class GameCardFX extends VBox {
     private Image cardAverse;
     private ImageView imageView;
     private Label label;
-    private GameCardState state = GameCardState.REVERS;
+    public GameCardState state = GameCardState.REVERS;
 
     protected String name;
 
@@ -59,6 +61,22 @@ public class GameCardFX extends VBox {
     }
 
     private double flipSpeed = 300;
+    private PulseTransition matchedPulse;
+    private volatile boolean flipping = false;
+    private ScaleTransition scaleTransitionHide;
+    private ScaleTransition scaleTransitionShow;
+
+    void selected() {
+        flip();
+    }
+
+    void matched() {
+        flipMatched();
+    }
+
+    void unselected() {
+        flip();
+    }
 
     private void configureFlip() {
         this.scaleTransitionHide = new ScaleTransition(Duration.millis(flipSpeed), this.imageView);
@@ -98,39 +116,29 @@ public class GameCardFX extends VBox {
         this.scaleTransitionShow.setOnFinished(event -> {
             flipping = false;
         });
-    }
 
-    void selected() {
-        flip();
-    }
-
-    void matched() {
-        flipMatched();
-    }
-
-    void unselected() {
-        flip();
-    }
-
-    public enum GameCardState {
-        AVERS, REVERS, MATCHED, DONE
-    }
-
-    private volatile boolean flipping = false;
-    private ScaleTransition scaleTransitionHide;
-    private ScaleTransition scaleTransitionShow;
-
-    public GameCardState getState() {
-        return state;
+        Paint defaultPaint = label.getTextFill();
+        matchedPulse = new PulseTransition(label);
     }
 
     private void flip(){
         new Thread(() -> {
             while(flipping){}
             flipping = true;
-            if (GameCardFX.this.state != GameCardState.MATCHED)
+            if (GameCardFX.this.state != GameCardState.MATCHED) {
                 scaleTransitionHide.play();
+            } else {
+                matchedPulse.playFromStart();
+            }
         }).start();
+    }
+
+    public GameCardState getState() {
+        return state;
+    }
+
+    public enum GameCardState {
+        AVERS, REVERS, MATCHED, DONE
     }
 
     private void flipMatched(){

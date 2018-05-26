@@ -96,7 +96,9 @@ public class GameCardManager extends VBox {
             secondSelected = gameCardFX;
             gameCardFX.selected();
 
-            if(firstSelected.name.equalsIgnoreCase(secondSelected.name)){
+            if (firstSelected.name.equalsIgnoreCase(secondSelected.name)
+                    && firstSelected.state != GameCardFX.GameCardState.MATCHED
+                    && secondSelected.state != GameCardFX.GameCardState.MATCHED) {
                 new Thread(() -> {
                     leftToMatch--;
                     try {
