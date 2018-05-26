@@ -8,6 +8,7 @@ package io.github.shaquu.memory.game.utils;
 import io.github.shaquu.memory.game.Main;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -28,6 +29,7 @@ public class RandomImageName {
         for(int i = 0; i < size; i++){
             randomList.add(Main.cardImageManager.getNameAt(i));
         }
+        Collections.shuffle(randomList);
     }
 
     public static String get(){

@@ -1,9 +1,11 @@
 package io.github.shaquu.memory.game.utils.transitions;
 
-import javafx.animation.*;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.scene.CacheHint;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
@@ -21,14 +23,9 @@ import javafx.util.Duration;
  *
  * @author Jasper Potts
  */
-public class ShakeTransition extends Transition {
+public class ShakeTransition extends FXTransition {
 
-    private final Timeline timeline;
-    private final Node node;
-    private final boolean useCache = true;
     private final double xIni;
-    private boolean oldCache = false;
-    private CacheHint oldCacheHint = CacheHint.DEFAULT;
 
     /**
      * Create new ShakeTransition
@@ -68,33 +65,5 @@ public class ShakeTransition extends Transition {
 
         setCycleDuration(Duration.seconds(1));
         setDelay(Duration.seconds(0.2));
-    }
-
-    /**
-     * Called when the animation is starting
-     */
-    private void starting() {
-        if (useCache) {
-            oldCache = node.isCache();
-            oldCacheHint = node.getCacheHint();
-            node.setCache(true);
-            node.setCacheHint(CacheHint.SPEED);
-        }
-    }
-
-    /**
-     * Called when the animation is stopping
-     */
-    private void stopping() {
-        if (useCache) {
-            node.setCache(oldCache);
-            node.setCacheHint(oldCacheHint);
-        }
-    }
-
-    @Override
-    protected void interpolate(double d) {
-        timeline.playFrom(Duration.seconds(d));
-        timeline.stop();
     }
 }
