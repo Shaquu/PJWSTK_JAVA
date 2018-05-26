@@ -24,6 +24,10 @@ import javafx.scene.text.Font;
 
 public class MenuScreen extends Screen {
 
+    private GameScreen gameScreen;
+    private CreditsScreen creditsScreen;
+    private HighScoreScreen highScoreScreen;
+
     public MenuScreen(){
     }
 
@@ -175,7 +179,8 @@ public class MenuScreen extends Screen {
                     new ShakeTransition(root).playFromStart();
                     return;
                 }
-                GameScreen gameScreen = new GameScreen(rows, cols, nameFld.getText());
+                hideAllScreens();
+                gameScreen = new GameScreen(rows, cols, nameFld.getText());
                 gameScreen.init();
                 gameScreen.show();
             } catch (NumberFormatException e){
@@ -188,7 +193,8 @@ public class MenuScreen extends Screen {
 
         Button highScoresBtn = new Button("High Scores");
         highScoresBtn.setOnAction(event -> {
-            HighScoreScreen highScoreScreen = new HighScoreScreen();
+            hideAllScreens();
+            highScoreScreen = new HighScoreScreen();
             highScoreScreen.init();
             highScoreScreen.show();
         });
@@ -198,7 +204,8 @@ public class MenuScreen extends Screen {
 
         Button creditsBtn = new Button("Credits");
         creditsBtn.setOnAction(event -> {
-            CreditsScreen creditsScreen = new CreditsScreen();
+            hideAllScreens();
+            creditsScreen = new CreditsScreen();
             creditsScreen.init();
             creditsScreen.show();
         });
@@ -224,5 +231,14 @@ public class MenuScreen extends Screen {
         this.getStage().setScene(scene);
 
         //new FadeOutDownTransition(timeFld).playFromStart();
+    }
+
+    private void hideAllScreens() {
+        if (gameScreen != null)
+            gameScreen.hide();
+        if (highScoreScreen != null)
+            highScoreScreen.hide();
+        if (creditsScreen != null)
+            creditsScreen.hide();
     }
 }

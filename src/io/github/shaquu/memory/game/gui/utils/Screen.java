@@ -28,7 +28,7 @@ public abstract class Screen {
         this.stage.show();
     }
 
-    protected void hide() {
+    public void hide() {
         this.stage.hide();
     }
 }
