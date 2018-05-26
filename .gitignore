@@ -165,8 +165,5 @@ $RECYCLE.BIN/
 build
 scores
 .gradle/
-gradle/wrapper/gradle-wrapper.properties
-gradlew
-gradlew.bat
 src/test/
 gradle/
