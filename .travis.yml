@@ -3,27 +3,39 @@ language: java
 sudo: required
 
 os:
-  - linux
-  - osx
+- linux
+- osx
 
 osx_image: xcode9.3
 
 addons:
-    apt:
-      update: true
+  apt:
+    update: true
 
 script:
-  - ./gradlew clean
-  - ./gradlew build
-  - ./gradlew fatJar
+- "./gradlew clean"
+- "./gradlew build"
+- "./gradlew fatJar"
+
+
+before_deploy:
+  - git config --global user.email "tadev3@gmail.com"
+  - git config --global user.name "Shaquu Travis"
+  - export RELASE_FILE=$(ls build/libs/Projekt_Two_GUI*.jar)
+  - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
+  - export GIT_TAG=$TRAVIS_BRANCH-v0.1.$TRAVIS_BUILD_NUMBER
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - git push -q https://$token@github.com/Shaquu/PJWSTK_JAVA Projekt_Two_GUI:Projekt_Two_GUI --tags
 
 deploy:
   provider: releases
   file_glob: true
   api_key: $token
-  email: tadev3@gmail.com
-  file: build/libs/*
-  skip_cleanup: true
-  overwrite: true
+  file: "${RELASE_FILE}"
   on:
-    branch: Projekt_Two_GUI
+    tags: false
+    all_branches: true
+
+branches:
+  except:
+    - /^*-v[0-9]/
