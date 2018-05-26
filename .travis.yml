@@ -12,11 +12,6 @@ addons:
     apt:
       update: true
 
-
-branches:
-  only:
-    - Projekt_Two_GUI
-
 script:
   - ./gradlew clean
   - ./gradlew build
@@ -31,6 +26,4 @@ deploy:
   skip_cleanup: true
   overwrite: true
   on:
-    branches:
-      only:
-        - Projekt_Two_GUI
+    branch: Projekt_Two_GUI
