@@ -8,6 +8,15 @@ os:
 
 osx_image: xcode9.3
 
+addons:
+    apt:
+      update: true
+
+
+branches:
+  only:
+    - Projekt_Two_GUI
+
 script:
   - ./gradlew clean
   - ./gradlew build
@@ -21,3 +30,7 @@ deploy:
   file: build/libs/*
   skip_cleanup: true
   overwrite: true
+  on:
+    branches:
+      only:
+        - Projekt_Two_GUI
