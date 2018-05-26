@@ -166,4 +166,3 @@ build
 scores
 .gradle/
 src/test/
-gradle/
